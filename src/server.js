@@ -27,5 +27,9 @@ const usersRoutes = require('./routes/usersRoutes');
 app.use('/', usersRoutes);
 app.use('/', postRoutes);
 
+app.all('*', (req, res) => {
+  res.json('404 not found');
+});
+
 // Launch app
 app.listen(PORT, console.log(`server online on port ${PORT}`));
