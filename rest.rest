@@ -1,0 +1,32 @@
+###
+
+GET http://localhost:3000/api/users
+
+###
+
+GET http://localhost:3000
+
+###
+
+POST http://localhost:3000/api/users/new
+Content-Type: application/json
+
+{
+  "name": "Jill",
+  "town": "Taurage",
+  "age": 33
+}
+
+###
+
+GET http://localhost:3000/api/posts
+###
+
+POST http://localhost:3000/api/posts
+Content-Type: application/json
+
+{
+  "title": "Post 1",
+  "author": "Jills",
+  "body": "Body of post 1"
+}
