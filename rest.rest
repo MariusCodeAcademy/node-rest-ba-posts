@@ -22,11 +22,24 @@ Content-Type: application/json
 GET http://localhost:3000/api/posts
 ###
 
-POST http://localhost:3000/api/posts
+POST http://localhost:3003/api/posts
 Content-Type: application/json
 
 {
-  "title": "Post 1",
+  "title": "title",
+  "author": "Marko",
+  "body": "Body of post 1",
+  "year": 2000
+}
+
+####
+
+POST https://radial-reinvented-shoe.glitch.me
+Content-Type: application/json
+
+{
+  "title": "asdasdasd",
   "author": "Jills",
-  "body": "Body of post 1"
+  "body": "Body of post 1",
+  "year": 2000
 }

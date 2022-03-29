@@ -6,6 +6,7 @@ async function validatePost(req, res, next) {
     title: Joi.string().min(5).max(50).required(),
     author: Joi.string().min(5).max(50).required(),
     body: Joi.string().min(5).max(500).required(),
+    year: Joi.number().min(1970).max(2022).required(),
   });
 
   try {
