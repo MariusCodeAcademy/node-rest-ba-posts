@@ -66,8 +66,30 @@ async function deletePost(req, res) {
   }
 }
 
+async function updatePost(req, res) {
+  try {
+    const { postId } = req.params;
+    const { body } = req;
+    // if (!postId || !authorId) throw new Error('bookId, authorId nepaduoti');
+    await dbClient.connect();
+    const filter = { _id: ObjectId(postId) };
+    const updateDoc = { $set: { body } };
+    // jei nera tokios property jis sukuria
+    const options = { upsert: false };
+    const updateResult = await dbClient.db('rest').collection('posts').updateOne(filter, updateDoc, options);
+
+    await dbClient.close();
+    successResponce(res, updateResult);
+    // return updateResult;
+  } catch (error) {
+    console.warn('getAllBooksBb function error', error);
+    failResponce(res);
+  }
+}
+
 module.exports = {
   postIndex,
   addPost,
   deletePost,
+  updatePost,
 };
