@@ -73,7 +73,7 @@ async function updatePost(req, res) {
     // if (!postId || !authorId) throw new Error('bookId, authorId nepaduoti');
     await dbClient.connect();
     const filter = { _id: ObjectId(postId) };
-    const updateDoc = { $set: { body } };
+    const updateDoc = { $set: { ...body } };
     // jei nera tokios property jis sukuria
     const options = { upsert: false };
     const updateResult = await dbClient.db('rest').collection('posts').updateOne(filter, updateDoc, options);
