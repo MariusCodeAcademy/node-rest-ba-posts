@@ -54,16 +54,15 @@ async function deletePost(req, res) {
     const { authorId } = req.params;
     await dbClient.connect();
     const deleteResult = await dbClient
-      .db('library')
-      .collection('authors')
+      .db('rest')
+      .collection('posts')
       .deleteOne({ _id: ObjectId(authorId) });
     await dbClient.close();
     successResponce(res, deleteResult);
     // return deleteResult;
   } catch (error) {
     failResponce(res);
-    console.warn('error in deleteSingleAuthorFromDb', error);
-    return false;
+    console.warn('error in deletePost', error);
   }
 }
 

@@ -9,5 +9,6 @@ const { validatePost } = require('../helper/middleware');
 postRoutes.get('/api/posts', postController.postIndex);
 
 postRoutes.post('/api/posts', validatePost, postController.addPost);
+postRoutes.delete('/api/posts/:authorId', postController.deletePost);
 
 module.exports = postRoutes;

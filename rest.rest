@@ -19,17 +19,21 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/api/posts
+DELETE  http://localhost:3003/api/posts/62429bc6f94300d1b8a1c8f1
+
+###
+
+GET http://localhost:3003/api/posts
 ###
 
 POST http://localhost:3003/api/posts
 Content-Type: application/json
 
 {
-  "title": "title",
-  "author": "Marko",
-  "body": "Body of post 1",
-  "year": 2000
+  "title": "Post about JS",
+  "author": "James",
+  "body": "Body of post About JS",
+  "year": 2005
 }
 
 ####
