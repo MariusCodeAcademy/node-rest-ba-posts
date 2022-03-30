@@ -20,20 +20,24 @@ Content-Type: application/json
 ###
 
 DELETE  http://localhost:3003/api/posts/62429bc6f94300d1b8a1c8f1
+###
+
+GET  http://localhost:3003/api/posts/6243ec9e13e9b6637f4c703c
 
 ###
 
 GET https://one-more-mca.herokuapp.com/api/posts
+
 ###
 
-PUT http://localhost:3003/api/posts/62416561f0048a09af8b471b
+PUT https://one-more-mca.herokuapp.com/api/posts/6242cabbc0956cf9e4000d2d
 Content-Type: application/json
 
 {
-  "title": "Post 1 Edited",
-  "author": "Jills",
-  "body": "Body of post 1",
-  "year": 1990
+  "title": "Post about JS edited",
+  "author": "James",
+  "body": "Body of post About JS",
+  "year": 2015
 }
 
 ####

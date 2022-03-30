@@ -2,6 +2,28 @@ const { ObjectId } = require('mongodb');
 const dbClient = require('../db');
 const { successResponce, failResponce } = require('../helper/dbHelpers');
 
+async function postSingle(req, res) {
+  try {
+    const userObjectId = new ObjectId(req.params.postId);
+    // 1 prisijungti prie db
+    const connection = await dbClient.connect();
+    // 2 atlikti veiksmus (gauti duomenis/ irasyt)
+    const data = await connection.db('rest').collection('posts').findOne({ _id: userObjectId });
+    // 3 uzdaryti db prisijungima
+    await connection.close();
+    // 4 grazinam useriui duomenis
+    res.json({
+      success: true,
+      data,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      error: 'Something went wrong',
+    });
+  }
+}
 async function postIndex(req, res) {
   try {
     // 1 prisijungti prie db
@@ -92,4 +114,5 @@ module.exports = {
   addPost,
   deletePost,
   updatePost,
+  postSingle,
 };

@@ -7,6 +7,7 @@ const { validatePost } = require('../helper/middleware');
 
 // routes
 postRoutes.get('/api/posts', postController.postIndex);
+postRoutes.get('/api/posts/:postId', postController.postSingle);
 
 postRoutes.post('/api/posts', validatePost, postController.addPost);
 postRoutes.put('/api/posts/:postId', validatePost, postController.updatePost);
